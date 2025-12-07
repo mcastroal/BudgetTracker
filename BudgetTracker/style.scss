@@ -1,0 +1,192 @@
+// COLORS!
+$primary-color: #92aa83;
+$secondary-color: #bfd5e2;
+$btn-color: #f2cafb;
+$light-color: #e0edc5;
+$dark-color: #b0bea9;
+
+//SPACING
+$border-radius: 5px;
+
+// MIXIN
+@mixin gradient($light-color, $dark-color) {
+    background-image: linear-gradient($light-color, $dark-color);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Tenor Sans", sans-serif;
+}
+
+body {
+    @include gradient($light-color, $dark-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    width: 100%;
+    font-weight: 400;
+
+    @media (min-width: 600px) {
+        max-width: 600px;
+        padding: 0;
+    }
+}
+
+// HEADER
+.header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        width: 100%;
+        max-width: 250px;
+        font-size: 1.2rem;
+        padding: 10px;
+        margin: 20px auto;
+        border-radius: $border-radius;
+        background-color: $primary-color;
+        font-weight: 800;
+
+        @media (min-width: 600px) {
+            font-size: 1.5rem;
+        }
+    }
+
+//Budget Summary Table
+.budget-summary {
+    border: 2px solid black;
+    width: 100%;
+    min-width: auto;
+    justify-content: center;
+    border-radius: $border-radius;
+    margin-bottom: 10px;
+
+    @media (min-width: 600px) {
+        min-width: 250px;
+    }
+
+    &__row {
+        background-color: #fcf3e2;
+    }
+
+    &__header {
+        background-color: $primary-color;
+        text-align: center;
+        font-weight: 600;
+        padding: 8px;
+    }
+
+    &__label {
+        background-color: $secondary-color;
+        text-align: center;
+        padding: 8px;
+    
+        &--total{
+        background-color: $primary-color;
+        }
+    }
+
+    &__value {
+        padding: 8px;  
+        text-align: right;
+
+        &--total {
+            font-weight: 600;
+        }
+    }
+}
+
+//Budget Table (Income and Expenses)
+.budget-table {
+    border: 2px solid black;
+    width: 100%;
+    min-width: 250px;
+    border-radius: $border-radius;
+    margin-bottom: 10px;
+
+    &__row {
+        background-color: #b0bea9;
+
+        &--total {
+            font-weight: 600;
+        }
+    }
+
+    &__header {
+        background-color: $primary-color;
+        text-align: center;
+        font-weight: 600;
+        padding: 8px;
+    }
+
+    &__category {
+        background-color: $primary-color;
+        text-align: left;
+        padding: 8px;
+        font-weight: 600;
+    }
+
+    &__label {
+        background-color: $secondary-color;
+        text-align: left;
+        padding: 8px;
+
+        &--total {
+            background-color: $primary-color;
+        }
+    }
+
+    &__cell {
+        padding: 8px;
+    }
+
+    &__value {
+        padding: 8px;
+        text-align: right;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 4px;
+        border: 1px solid black;
+        border-radius: 3px;
+
+        &--text {
+            background-color: transparent;
+            border: none;
+        }
+    }
+
+    &__btn {
+        border-radius: $border-radius;
+        padding: 5px 35px;
+        width: 100%;
+        background-color: $btn-color;
+        border: 1px solid black;
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            color: white;
+            background-color: rgba($btn-color, 0.67);
+        }
+    }
+
+    &__add-form {
+        display: flex;
+        gap: 8px;
+        flex-direction: column;
+
+        @media (min-width: 500px) {
+            flex-direction: row;
+        }
+    }
+
+    &__input--description {
+        flex: 2;
+    }
+}

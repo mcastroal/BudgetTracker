@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS LINK-->
+    <link rel="stylesheet" href="style.css"> 
+    <!-- FONT LINK -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Orbitron:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono&family=Tenor+Sans&display=swap" rel="stylesheet">
+    <title>Budget Tracker</title>
+</head>
+<body>
+    <section>
+     <h1 class="header">My Budget Tracker</h1>
+
+     <!-- SUMMARY TABLE -->
+     <table class="budget-summary">
+
+        <!-- Summary Table Heading -->
+        <thead>
+            <tr class="budget-summary__row">
+                <th class="budget-summary__header" colspan="2">Summary</th>   
+            </tr>
+        </thead>
+
+        <!-- Summary Table Contents -->
+        <tbody class="budget-summary__body">
+            <tr class="budget-summary__row">
+            <th scope="row" class="budget-summary__label">Total Income</th>
+            <td class="budget-summary__value" id="summary-income">$0.00</td>
+            </tr>
+            <tr class="budget-summary__row">
+            <th scope="row" class="budget-summary__label">Total Expenses</th>
+            <td class="budget-summary__value" id="summary-expenses">$0.00</td>
+            </tr>
+            <tr class="budget-summary__row">
+            <th scope="row" class="budget-summary__label">Net Income</th>
+            <td class="budget-summary__value" id="summary-net">$0.00</td>
+            </tr>
+        </tbody>
+     </table>
+
+     <!-- INCOME TABLE -->
+     <table class="budget-table budget-table--income">
+
+        <!-- Income Table Heading -->
+        <thead class="budget-table__head">
+            <tr class="budget-table__row">
+                <th class="budget-table__header" colspan="2">Income</th>
+            </tr>
+        </thead>
+
+        <!-- Income Table Contents -->
+        <tbody class="budget-table__body">
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Salary/Wages">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label" contenteditable="true">
+                    <input type="text" class="budget-table__input budget-table__input--text" Value="Other">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row budget-table__row--add">
+                <td class="budget-table__cell" colspan="2">
+                    <div class="budget-table__add-form">
+                        <input
+                            type="text" class="budget-table__input budget_table__input--description" id="income-description" placeholder="Description">
+                        <input 
+                            type="number" class="budget-table__input" id="income-amount" placeholder="Amount" step="0.01" min="0">
+                        <button class="budget-table__btn" type="button" id="add-income-btn">Add Income</button>
+                    </div>
+                </td>
+            </tr>
+            <!-- Total -->
+            <tr class="budget-table__row budget-table__row--total">
+                <th scope="row" class="budget-table__label budget-table__label--total">Total Income</th>
+                <td class="budget-table__value" id="income-total">$0.00</td>
+            </tr>
+        </tbody>
+     </table>
+     <table class="budget-table budget-table--expenses">
+        <!-- Expenses Table Heading -->
+         <thead class="budget-table__head">
+            <tr class="budget-table__row">
+                <th class="budget-table__header" colspan="2">Expenses</th>
+            </tr>
+         </thead>
+         <!-- Expenses Table Contents -->
+        <tbody class="budget-table__body">
+
+            <!-- First Category -->
+            <tr class="budget-table__row">
+                <th class="budget-table__category" colspan="2">Home</th>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Mortgage/Rent">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Utilities">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Other">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <!-- Second Category -->
+            <tr class="budget-table__row">
+                <th class="budget-table__category" colspan="2">Transportation</th>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Car Payment">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Auto Insurance">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Fuel">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Other">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <!-- Third Category -->
+            <tr class="budget-table__row">
+                <th class="budget-table__category" colspan="2">Daily Living</th>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Groceries">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Dining Out">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Other">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <!-- Fourth Category -->
+            <tr class="budget-table__row">
+                <th class="budget-table__category" colspan="2">Entertainment</th>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Travel">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Subscriptions">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Other">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <!-- Fifth Category -->
+             <tr class="budget-table__row">
+                <th class="budget-table__category" colspan="2">Health</th>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Heath Insurance">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Gym Membership">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Other">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <!-- Sixth Category -->
+             <tr class="budget-table__row">
+                <th class="budget-table__category" colspan="2">Additional Expenses</th>
+            </tr>
+            <tr class="budget-table__row">
+                <th scope="row" class="budget-table__label">
+                    <input type="text" class="budget-table__input budget-table__input--text" value="Other">
+                </th>
+                <td class="budget-table__cell">
+                    <input type="number" class="budget-table__input" value="0" step="0.01" min="0">
+                </td>
+            </tr>
+            <tr class="budget-table__row budget-table__row--add">
+                <td class="budget-table__cell" colspan="2">
+                    <div class="budget-table__add-form">
+                        <input
+                            type="text" class="budget-table__input budget_table__input--description" id="expense-description" placeholder="Description">
+                        <input 
+                            type="number" class="budget-table__input" id="expense-amount" placeholder="Amount" step="0.01" min="0">
+                        <button class="budget-table__btn" type="button" id="add-expense-btn">Add Expense</button>
+                    </div>
+                </td>
+            </tr>
+            <!-- Total -->
+            <tr class="budget-table__row budget-table__row--total">
+                <th scope="row" class="budget-table__label budget-table__label--total">Total Expenses</th>
+                <td class="budget-table__value" id="expenses-total">$0.00</td>
+            </tr>
+        </tbody>
+     </table>
+     </section>
+    <!-- JAVASCRIPT LINK -->
+    <script src="script.js"></script>
+</body>
+</html>
